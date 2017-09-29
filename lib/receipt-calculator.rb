@@ -22,10 +22,9 @@ module ReceiptCalculator
 
   def print_recept(csv_content_input)
     receipt = parse(csv_content_input)
-    receipt.calculate
     output = CSV.generate do |csv|
-      receipt.line_items_details.each do |line_item_detail|
-        csv << [line_item_detail[:quantity], " #{line_item_detail[:product].name}", " #{line_item_detail[:total]}"]
+      receipt.receipt_items_details.each do |receipt_item_detail|
+        csv << [receipt_item_detail[:quantity], " #{receipt_item_detail[:product].name}", " #{receipt_item_detail[:total]}"]
       end
     end
     output << "\n"

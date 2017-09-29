@@ -2,30 +2,30 @@ require "receipt-calculator/receipt_item"
 
 module ReceiptCalculator
   class Receipt
-    attr_accessor :line_items, :line_items_details
+    attr_accessor :receipt_items
   
     def initialize
-      @line_items = []
+      @receipt_items = []
     end
 
     def add_item(product, quantity)
-      line_items << {product: product, quantity: quantity}
+      receipt_items << ReceiptItem.new(product, quantity)
     end
 
-    def calculate
-      self.line_items_details = line_items.map do |line_item|
-        ReceiptItem.new(line_item).details
+    def receipt_items_details
+      receipt_items.map do |receipt_item|
+        receipt_item.details
       end
     end
 
     def sales_taxes
-      line_items_details
+      receipt_items_details
         .map {|item_details| item_details[:sale_taxes]}
         .inject(:+)
     end
 
     def total
-      line_items_details
+      receipt_items_details
         .map {|item_details| item_details[:total]}
         .inject(:+)
     end

@@ -9,19 +9,19 @@ RSpec.describe ReceiptCalculator::ReceiptItem do
 
   it "#sale_taxes returns sale taxes" do
     allow(@tax_calculator).to receive(:calculate_tax).and_return(12)
-    line_item = {product: Product.new(name: "Test product", price: 10), quantity: 2}
-    expect(ReceiptCalculator::ReceiptItem.new(line_item).sale_taxes).to eq(12)
+    product = Product.new(name: "Test product", price: 10)
+    expect(ReceiptCalculator::ReceiptItem.new(product, 2).sale_taxes).to eq(12)
   end
 
   it "#total returns total price for the line item" do
     allow(@tax_calculator).to receive(:calculate_tax).and_return(12)
-    line_item = {product: Product.new(name: "Test product", price: 10), quantity: 2}
-    expect(ReceiptCalculator::ReceiptItem.new(line_item).total).to eq(44)
+    product = Product.new(name: "Test product", price: 10)
+    expect(ReceiptCalculator::ReceiptItem.new(product, 2).total).to eq(44)
   end
 
   it "#total should be round" do
     allow(@tax_calculator).to receive(:calculate_tax).and_return(1.9)
-    line_item = {product: Product.new(name: "Test product", price: 18.99), quantity: 1}
-    expect(ReceiptCalculator::ReceiptItem.new(line_item).total).to eq(20.89)
+    product = Product.new(name: "Test product", price: 18.99)
+    expect(ReceiptCalculator::ReceiptItem.new(product, 1).total).to eq(20.89)
   end
 end

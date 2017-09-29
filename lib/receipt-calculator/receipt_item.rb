@@ -4,10 +4,10 @@ module ReceiptCalculator
   class ReceiptItem
     attr_accessor :tax_calculator, :product, :quantity
 
-    def initialize(line_item)
+    def initialize(product, quantity)
       @tax_calculator = TaxCalculator.new
-      @product = line_item[:product]
-      @quantity = line_item[:quantity]
+      @product = product
+      @quantity = quantity
     end
 
     def sale_taxes
