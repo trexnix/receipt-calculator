@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'receipt_calculator'
+require 'receipt-calculator'
 
 ARGV.each do |file|
   if File.file?(file)
