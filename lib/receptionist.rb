@@ -25,7 +25,7 @@ module Receptionist
     recept.calculate
     output = CSV.generate do |csv|
       recept.line_items_details.each do |line_item_detail|
-        csv << [line_item_detail[:quantity], line_item_detail[:product].name, line_item_detail[:total]]
+        csv << [line_item_detail[:quantity], " #{line_item_detail[:product].name}", " #{line_item_detail[:total]}"]
       end
     end
     output << "\n"
