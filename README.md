@@ -19,46 +19,36 @@ gem install ./receipt-calculator-0.1.0.gem
 Suppose we have an input file like this:
 
 ```
-# input1.text
+# input1.txt
 Quantity, Product, Price
 1, book, 12.49
 1, music cd, 14.99
 1, chocolate bar, 0.85
 ```
 
-#### Read from file
+You can use `receipt-calculator` command in one of below ways, all produce the same result:
 ```
+# Read from file
 receipt-calculator input1.txt
-# =>
-# 1, book, 12.49
-# 1, music cd, 16.49
-# 1, chocolate bar, 0.85
-```
 
-Many files supported as well:
-```
+# Many files supported as well:
 receipt-calculator input1.txt input2.txt input3.txt ... inputn.txt
-...
-```
 
-#### Read from STDIN
-```
+# Read from STDIN
 receipt-calculator < input1.txt
-...
-```
 
-or
+# Or
+cat input1.txt | receipt-calculator
 
-```
-cat input1 | receipt-calculator
-...
+# Or both file and STDIN
+cat input1.txt | receipt-calculator input2.txt
 ```
 
 ### API
 
-In your code:
+In your code or `irb`:
 ```
-require 'receipt_calculator'
+require 'receipt-calculator'
 
 puts ReceiptCalculator.print_recept <<~EOS
   Quantity, Product, Price
