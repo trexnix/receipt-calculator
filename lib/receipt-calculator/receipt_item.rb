@@ -1,7 +1,7 @@
 require 'receipt-calculator/tax_calculator'
 
 module ReceiptCalculator
-  class ReceptItem
+  class ReceiptItem
     attr_accessor :tax_calculator, :product, :quantity
 
     def initialize(line_item)

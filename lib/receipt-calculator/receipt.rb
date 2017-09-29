@@ -1,7 +1,7 @@
 require "receipt-calculator/receipt_item"
 
 module ReceiptCalculator
-  class Recept
+  class Receipt
     attr_accessor :line_items, :line_items_details
   
     def initialize
@@ -14,7 +14,7 @@ module ReceiptCalculator
 
     def calculate
       self.line_items_details = line_items.map do |line_item|
-        ReceptItem.new(line_item).details
+        ReceiptItem.new(line_item).details
       end
     end
 
