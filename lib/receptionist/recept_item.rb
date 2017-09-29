@@ -22,7 +22,7 @@ module Receptionist
       {
         product: product,
         quantity: quantity,
-        sale_taxes: sale_tax,
+        sale_taxes: sale_taxes,
         total: total
       }
     end
