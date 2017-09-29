@@ -15,7 +15,7 @@ module Receptionist
     end
 
     def total
-      (product.price + sale_taxes) * quantity
+      ((product.price + sale_taxes) * quantity).round(2)
     end
 
     def details
