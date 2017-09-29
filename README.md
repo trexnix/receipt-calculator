@@ -1,38 +1,90 @@
 # Receptionist
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/receptionist`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
-Add this line to your application's Gemfile:
+Mark sure you have Ruby and Bundler installed on your system.
 
-```ruby
-gem 'receptionist'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install receptionist
+git clone https://github.com/trexnix/receptionist.git
+cd receptionist
+bundle install
+gem build receptionist.gemspec
+gem install ./receptionist-0.1.0.gem
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### CLI
 
-## Development
+Suppose we have an input file like this:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```
+# input1.text
+Quantity, Product, Price
+1, book, 12.49
+1, music cd, 14.99
+1, chocolate bar, 0.85
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+#### Read from file
+```
+receptionist input1.txt
+# =>
+# 1, book, 12.49
+# 1, music cd, 16.49
+# 1, chocolate bar, 0.85
+```
+
+Many files supported as well:
+```
+receptionist input1.txt input2.txt input3.txt ... inputn.txt
+...
+```
+
+#### Read from STDIN
+```
+receptionist < input1.txt
+...
+```
+
+or
+
+```
+cat input1 | receptionist
+...
+```
+
+### API
+
+In your code:
+```
+require 'receptionist'
+
+puts Receptionist.print_recept <<~EOS
+  Quantity, Product, Price
+  1, imported box of chocolates, 10.00
+  1, imported bottle of perfume, 47.50
+EOS
+
+# =>
+# 1, imported box of chocolates, 10.50
+# 1, imported bottle of perfume, 54.65
+#
+# Sales Taxes: 7.65
+# Total: 65.15
+```
+
+## Testing
+
+To run all the tests, execute:
+
+```
+bundle exec rake
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/receptionist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/trexnix/receptionist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 

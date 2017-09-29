@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Trexnix"]
   spec.email         = ["trexnix@gmail.com"]
 
-  spec.summary       = "A receptionist programmer"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "A receptionist program"
+  spec.homepage      = "https://github.com/trexnix/receptionist"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.executables   = "receptionist"
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16.a"
+  spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
