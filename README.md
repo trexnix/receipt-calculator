@@ -60,6 +60,10 @@ In your code or `irb`:
 ```ruby
 require 'receipt-calculator'
 
+puts ReceiptCalculator.print_receipt(File.read('input1.txt'))
+
+# Or
+
 puts ReceiptCalculator.print_receipt <<~EOS
   Quantity, Product, Price
   1, imported box of chocolates, 10.00
