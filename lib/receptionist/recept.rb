@@ -1,3 +1,5 @@
+require "receptionist/recept_item"
+
 module Receptionist
   class Recept
     attr_accessor :line_items, :line_items_details
@@ -20,15 +22,12 @@ module Receptionist
       line_items_details
         .map {|item_details| item_details[:sale_taxes]}
         .inject(:+)
-        # .round(2)
-      
     end
 
     def total
       line_items_details
         .map {|item_details| item_details[:total]}
         .inject(:+)
-        # .round(2)
     end
   end
 end

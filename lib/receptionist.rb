@@ -1,5 +1,7 @@
 require "csv"
 require "receptionist/version"
+require "receptionist/product"
+require "receptionist/recept"
 
 module Receptionist
   extend self
