@@ -1,9 +1,11 @@
+require 'receptionist/tax_calculator'
+
 module Receptionist
   class ReceptItem
     attr_accessor :tax_calculator, :product, :quantity
 
-    def initialize(tax_calculator, line_item)
-      @tax_calculator = tax_calculator
+    def initialize(line_item)
+      @tax_calculator = TaxCalculator.new
       @product = line_item[:product]
       @quantity = line_item[:quantity]
     end
