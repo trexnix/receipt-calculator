@@ -20,12 +20,15 @@ module Receptionist
       line_items_details
         .map {|item_details| item_details[:sale_taxes]}
         .inject(:+)
+        # .round(2)
+      
     end
 
     def total
       line_items_details
         .map {|item_details| item_details[:total]}
         .inject(:+)
+        # .round(2)
     end
   end
 end
