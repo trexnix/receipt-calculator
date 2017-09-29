@@ -7,24 +7,15 @@ module ReceiptCalculator
     def initialize(product, quantity)
       @tax_calculator = TaxCalculator.new
       @product = product
-      @quantity = quantity
+      @quantity = quantity.to_i
     end
 
     def sale_taxes
       tax_calculator.calculate_tax(product)
     end
 
-    def total
+    def total_price
       ((product.price + sale_taxes) * quantity).round(2)
-    end
-
-    def details
-      {
-        product: product,
-        quantity: quantity,
-        sale_taxes: sale_taxes,
-        total: total
-      }
     end
   end
 end

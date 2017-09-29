@@ -2,32 +2,22 @@ require "receipt-calculator/receipt_item"
 
 module ReceiptCalculator
   class Receipt
-    attr_accessor :receipt_items
+    attr_accessor :items
   
     def initialize
-      @receipt_items = []
+      @items = []
     end
 
     def add_item(product, quantity)
-      receipt_items << ReceiptItem.new(product, quantity)
-    end
-
-    def receipt_items_details
-      receipt_items.map do |receipt_item|
-        receipt_item.details
-      end
+      items << ReceiptItem.new(product, quantity)
     end
 
     def sales_taxes
-      receipt_items_details
-        .map {|item_details| item_details[:sale_taxes]}
-        .inject(:+)
+      items.map {|receipt_item| receipt_item.sale_taxes}.inject(:+)
     end
 
-    def total
-      receipt_items_details
-        .map {|item_details| item_details[:total]}
-        .inject(:+)
+    def total_price
+      items.map {|receipt_item| receipt_item.total_price}.inject(:+)
     end
   end
 end

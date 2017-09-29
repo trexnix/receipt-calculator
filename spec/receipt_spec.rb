@@ -12,14 +12,14 @@ RSpec.describe ReceiptCalculator::Receipt do
     @product2 = Product.new(name: "Test product 2", price: 15)
   end
 
-  it "#add_item adds line item to the list" do
+  it "#add_item adds new receipt item to the receipt" do
     receipt = ReceiptCalculator::Receipt.new
     expect {
       receipt.add_item(@product1, 2)
-    }.to change { receipt.receipt_items.size }.by(1)
+    }.to change { receipt.items.size }.by(1)
     expect {
       receipt.add_item(@product2, 3)
-    }.to change { receipt.receipt_items.size }.by(1)
+    }.to change { receipt.items.size }.by(1)
   end
 
   it "#sales_taxes returns total sales taxes" do
@@ -34,9 +34,9 @@ RSpec.describe ReceiptCalculator::Receipt do
   it "#total returns total price of the receipt" do
     receipt = ReceiptCalculator::Receipt.new
     receipt.add_item(@product1, 2)
-    expect(receipt.total).to eq(30)
+    expect(receipt.total_price).to eq(30)
 
     receipt.add_item(@product2, 3)
-    expect(receipt.total).to eq(90)
+    expect(receipt.total_price).to eq(90)
   end
 end

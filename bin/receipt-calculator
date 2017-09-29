@@ -4,11 +4,11 @@ require 'receipt-calculator'
 
 ARGV.each do |file|
   if File.file?(file)
-    puts ReceiptCalculator.print_recept(File.read(file))
+    puts ReceiptCalculator.print_receipt(File.read(file))
     puts "\n"
   end
 end
 
 if !STDIN.tty?
-  puts ReceiptCalculator.print_recept(STDIN.read)  
+  puts ReceiptCalculator.print_receipt(STDIN.read)  
 end
