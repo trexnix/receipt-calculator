@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'receipt_calculator'
+
+ARGV.each do |file|
+  if File.file?(file)
+    puts ReceiptCalculator.print_recept(File.read(file))
+    puts "\n"
+  end
+end
+
+if !STDIN.tty?
+  puts ReceiptCalculator.print_recept(STDIN.read)  
+end

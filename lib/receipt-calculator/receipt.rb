@@ -1,6 +1,6 @@
-require "receptionist/recept_item"
+require "receipt-calculator/receipt_item"
 
-module Receptionist
+module ReceiptCalculator
   class Recept
     attr_accessor :line_items, :line_items_details
   

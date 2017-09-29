@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    receptionist (0.1.0)
+    receipt-calculator (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -28,7 +28,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.16.a)
   rake (~> 10.0)
-  receptionist!
+  receipt-calculator!
   rspec (~> 3.0)
 
 BUNDLED WITH

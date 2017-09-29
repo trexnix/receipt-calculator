@@ -1,9 +1,9 @@
-require 'receptionist/product'
-require 'receptionist/tax_calculator'
+require 'receipt-calculator/product'
+require 'receipt-calculator/tax_calculator'
 
-RSpec.describe Receptionist::TaxCalculator do
+RSpec.describe ReceiptCalculator::TaxCalculator do
   before do
-    @tax_calculator = Receptionist::TaxCalculator.new
+    @tax_calculator = ReceiptCalculator::TaxCalculator.new
   end
   it "domestic books, food, mediacal products should be exampt" do
     book = Product.new(name: "book", price: 20)

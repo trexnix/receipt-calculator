@@ -1,6 +1,6 @@
-require 'receptionist/tax_calculator'
+require 'receipt-calculator/tax_calculator'
 
-module Receptionist
+module ReceiptCalculator
   class ReceptItem
     attr_accessor :tax_calculator, :product, :quantity
 

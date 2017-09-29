@@ -1,6 +1,6 @@
-RSpec.describe Receptionist do
+RSpec.describe ReceiptCalculator do
   it "parses CSV input" do
-    recept = Receptionist.parse <<~EOS
+    recept = ReceiptCalculator.parse <<~EOS
       Quantity, Product, Price
       1, imported bottle of perfume, 27.99
       2, bottle of perfume, 18.99
@@ -17,7 +17,7 @@ RSpec.describe Receptionist do
   end
 
   it "prints out the recept details" do
-    output = Receptionist.print_recept <<~EOS
+    output = ReceiptCalculator.print_recept <<~EOS
       Quantity, Product, Price
       1, imported bottle of perfume, 27.99
       1, bottle of perfume, 18.99

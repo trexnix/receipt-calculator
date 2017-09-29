@@ -1,4 +1,4 @@
-module Receptionist
+module ReceiptCalculator
   class TaxCalculator
     attr_accessor :code_to_rate, :nearest_decimal
     

@@ -1,9 +1,9 @@
 require "csv"
-require "receptionist/version"
-require "receptionist/product"
-require "receptionist/recept"
+require "receipt-calculator/version"
+require "receipt-calculator/product"
+require "receipt-calculator/receipt"
 
-module Receptionist
+module ReceiptCalculator
   extend self
 
   def default_csv_headers

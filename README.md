@@ -1,15 +1,15 @@
-# Receptionist
+# ReceiptCalculator
 
 ## Installation
 
 Mark sure you have Ruby and Bundler installed on your system.
 
 ```
-git clone https://github.com/trexnix/receptionist.git
-cd receptionist
+git clone https://github.com/trexnix/receipt-calculator.git
+cd receipt-calculator
 bundle install
-gem build receptionist.gemspec
-gem install ./receptionist-0.1.0.gem
+gem build receipt-calculator.gemspec
+gem install ./receipt-calculator-0.1.0.gem
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ Quantity, Product, Price
 
 #### Read from file
 ```
-receptionist input1.txt
+receipt-calculator input1.txt
 # =>
 # 1, book, 12.49
 # 1, music cd, 16.49
@@ -37,20 +37,20 @@ receptionist input1.txt
 
 Many files supported as well:
 ```
-receptionist input1.txt input2.txt input3.txt ... inputn.txt
+receipt-calculator input1.txt input2.txt input3.txt ... inputn.txt
 ...
 ```
 
 #### Read from STDIN
 ```
-receptionist < input1.txt
+receipt-calculator < input1.txt
 ...
 ```
 
 or
 
 ```
-cat input1 | receptionist
+cat input1 | receipt-calculator
 ...
 ```
 
@@ -58,9 +58,9 @@ cat input1 | receptionist
 
 In your code:
 ```
-require 'receptionist'
+require 'receipt_calculator'
 
-puts Receptionist.print_recept <<~EOS
+puts ReceiptCalculator.print_recept <<~EOS
   Quantity, Product, Price
   1, imported box of chocolates, 10.00
   1, imported bottle of perfume, 47.50
@@ -84,7 +84,7 @@ bundle exec rake
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/trexnix/receptionist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/trexnix/receipt-calculator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -92,4 +92,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Receptionist project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/receptionist/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the ReceiptCalculator project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/receipt_calculator/blob/master/CODE_OF_CONDUCT.md).

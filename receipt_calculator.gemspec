@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "receptionist/version"
+require "receipt-calculator/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "receptionist"
-  spec.version       = Receptionist::VERSION
+  spec.name          = "receipt-calculator"
+  spec.version       = ReceiptCalculator::VERSION
   spec.authors       = ["Trexnix"]
   spec.email         = ["trexnix@gmail.com"]
 
-  spec.summary       = "A receptionist program"
-  spec.homepage      = "https://github.com/trexnix/receptionist"
+  spec.summary       = "A receipt calculator program"
+  spec.homepage      = "https://github.com/trexnix/receipt-calculator"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -26,10 +26,10 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
   spec.bindir        = "bin"
-  spec.executables   = "receptionist"
+  spec.executables   = "receipt-calculator"
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.16"
+  spec.add_development_dependency "bundler", "~> 1.16.a"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
 end
