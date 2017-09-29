@@ -26,7 +26,10 @@ RSpec.describe Receptionist::TaxCalculator do
   end
 
   it "tax should be rounded up to nearest decimal" do
-    perfume = Product.new(name: "imported bottle of perfume", price: 47.5)
-    expect(@tax_calculator.calculate_tax(perfume)).to eq(7.15)
+    perfume1 = Product.new(name: "imported bottle of perfume", price: 47.5)
+    expect(@tax_calculator.calculate_tax(perfume1)).to eq(7.15)
+
+    perfume2 = Product.new(name: "bottle of perfume", price: 18.99)
+    expect(@tax_calculator.calculate_tax(perfume2)).to eq(1.9)
   end
 end

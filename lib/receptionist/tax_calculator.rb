@@ -13,7 +13,8 @@ module Receptionist
 
     def calculate_tax(product)
       tax = product.price * get_tax_rate_by_product(product)
-      (tax / nearest_decimal).round * nearest_decimal
+      tax = (tax / nearest_decimal).ceil * nearest_decimal
+      tax.round(2)
     end
 
     def is_basic_tax_exampt?(product)
